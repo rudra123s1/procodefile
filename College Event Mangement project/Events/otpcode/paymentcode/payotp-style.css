@@ -1,0 +1,179 @@
+/* General Styling & Color Palette */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --color-bg-dark: #0f172a;
+    /* Slate 900 */
+    --color-bg-medium: #1e293b;
+    /* Slate 800 */
+    --color-border: #334155;
+    /* Slate 700 */
+    --color-text-light: #e2e8f0;
+    /* Slate 200 */
+    --color-text-medium: #94a3b8;
+    /* Slate 400 */
+    --color-primary: #818cf8;
+    /* Indigo 400 */
+    --color-primary-dark: #4f46e5;
+    /* Indigo 600 */
+    --color-accent: #10b981;
+    /* Emerald 500 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* --- Main Authentication Card --- */
+.auth-container {
+    background-color: var(--color-bg-medium);
+    padding: 3rem;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-icon {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary-dark);
+    animation: icon-pop 0.8s ease-out;
+}
+
+@keyframes icon-pop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    80% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.auth-container h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text-light);
+}
+
+.auth-container p {
+    color: var(--color-text-medium);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.auth-container .email-display {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* --- OTP Input Fields --- */
+.otp-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.otp-input {
+    width: 50px;
+    height: 60px;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 600;
+    background-color: var(--color-bg-dark);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-light);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.otp-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(31, 42, 136, 0.3);
+}
+
+/* --- Buttons and Links --- */
+.btn {
+    background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary));
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    box-shadow: 0 5px 20px rgba(71, 74, 95, 0.4);
+    transform: translateY(-3px);
+}
+
+.resend-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.resend-link a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.resend-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .auth-container {
+        padding: 2rem;
+    }
+
+    .otp-input {
+        width: 40px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}

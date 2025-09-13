@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment Gateway | College Event Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="payment-gateway-style.css">
+
+</head>
+
+<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4">
+    <div
+        class="payment-container flex flex-col md:flex-row bg-white rounded-2xl shadow-2xl max-w-4xl w-full overflow-hidden">
+
+        <div class="details-panel w-full md:w-2/5 text-white p-8">
+            <div class="flex items-center mb-6 opacity-90">
+                <svg class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <h2 class="text-2xl font-bold tracking-wider">RAZORPAY</h2>
+            </div>
+            <p class="text-sm text-indigo-200 mb-2">Pay To</p>
+            <p class="text-xl font-semibold mb-6">College Event Hub</p>
+
+            <div class="border-t border-indigo-400 opacity-50 my-6"></div>
+
+            <div>
+                <p class="text-sm text-indigo-200 mb-2">Amount to be paid</p>
+                <p class="text-5xl font-extrabold">₹500.00</p>
+            </div>
+            <p class="text-xs text-indigo-300 mt-12">Order ID: ORD-2025-CODECON-123</p>
+        </div>
+
+        <div class="w-full md:w-3/5 p-8">
+            <div class="flex border-b border-gray-200 -mx-8 px-8">
+                <button id="cardTab" class="tab-button tab-active py-4 px-6 font-semibold text-sm focus:outline-none">
+                    <i class="fas fa-credit-card mr-2"></i>Card
+                </button>
+                <button id="upiTab"
+                    class="tab-button py-4 px-6 font-semibold text-sm text-gray-500 hover:text-gray-800 focus:outline-none">
+                    <i class="fa-solid fa-qrcode mr-2"></i>UPI
+                </button>
+                <button id="netbankingTab"
+                    class="tab-button py-4 px-6 font-semibold text-sm text-gray-500 hover:text-gray-800 focus:outline-none">
+                    <i class="fas fa-university mr-2"></i>Net Banking
+                </button>
+            </div>
+
+            <div id="cardContent" class="tab-content tab-content-active mt-8">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Card Number</label>
+                    <input type="text" placeholder="0000 0000 0000 0000"
+                        class="form-input w-full p-3 border rounded-lg">
+                </div>
+                <div class="flex space-x-4 mb-4">
+                    <div class="w-1/2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Expiry Date</label>
+                        <input type="text" placeholder="MM / YY" class="form-input w-full p-3 border rounded-lg">
+                    </div>
+                    <div class="w-1/2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">CVV</label>
+                        <input type="password" placeholder="***" class="form-input w-full p-3 border rounded-lg">
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Card Holder Name</label>
+                    <input type="text" placeholder="Enter name as on card"
+                        class="form-input w-full p-3 border rounded-lg">
+                </div>
+            </div>
+
+            <div id="upiContent" class="tab-content mt-8">
+                <p class="text-gray-600 mb-4">Enter your UPI ID to receive a payment request.</p>
+                <input type="text" placeholder="yourname@bank" class="form-input w-full p-3 border rounded-lg">
+            </div>
+
+            <div id="netbankingContent" class="tab-content mt-8">
+                <p class="text-gray-600 mb-4">Select your bank to proceed.</p>
+                <select class="form-input w-full p-3 border rounded-lg bg-white">
+                    <option>State Bank of India</option>
+                    <option>HDFC Bank</option>
+                    <option>ICICI Bank</option>
+                    <option>Axis Bank</option>
+                </select>
+            </div>
+
+            <button id="payButton" class="pay-button w-full mt-8 text-white py-4 rounded-lg text-lg font-bold">
+                Pay Securely ₹500.00
+            </button>
+        </div>
+    </div>
+
+    <div id="loadingModal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center">
+        <div class="bg-white p-8 rounded-lg flex flex-col items-center space-y-4">
+            <div class="loader"></div>
+            <span class="text-lg font-semibold text-gray-700">Processing Payment...</span>
+        </div>
+    </div>
+
+    <script>
+        const tabs = {
+            card: { button: document.getElementById('cardTab'), content: document.getElementById('cardContent') },
+            upi: { button: document.getElementById('upiTab'), content: document.getElementById('upiContent') },
+            netbanking: { button: document.getElementById('netbankingTab'), content: document.getElementById('netbankingContent') }
+        };
+
+        function switchTab(selectedTab) {
+            Object.values(tabs).forEach(tab => {
+                tab.button.classList.remove('tab-active');
+                tab.button.classList.add('text-gray-500');
+                tab.content.classList.remove('tab-content-active');
+            });
+
+            tabs[selectedTab].button.classList.add('tab-active');
+            tabs[selectedTab].button.classList.remove('text-gray-500');
+            tabs[selectedTab].content.classList.add('tab-content-active');
+        }
+
+        Object.keys(tabs).forEach(key => {
+            tabs[key].button.addEventListener('click', () => switchTab(key));
+        });
+
+        const payButton = document.getElementById('payButton');
+        const loadingModal = document.getElementById('loadingModal');
+
+        payButton.addEventListener('click', () => {
+            loadingModal.style.display = 'flex';
+
+            // Simulate payment processing
+            setTimeout(() => {
+                // Redirect to the payment successful page
+                window.location.href = 'payotp.html';
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>

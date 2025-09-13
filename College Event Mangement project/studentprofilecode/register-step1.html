@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration - Step 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="reg-style.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="form-card">
+            <div class="form-header">
+                <h1>Student <span>Registration</span></h1>
+            </div>
+
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step active">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Personal Info</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-label">College Details</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Contact Details</div>
+                </div>
+            </div>
+
+            <form id="step1-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="e.g., Aarav Sharma" required>
+                </div>
+                <div class="form-group">
+                    <label for="photo">Upload Your Photo</label>
+                    <div class="photo-upload-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click to browse or drag and drop</p>
+                    </div>
+                </div>
+                <div class="btn-nav">
+                    <span><!-- Empty span to push the next button to the right --></span>
+                    <button type="submit" class="btn btn-primary">Next Step <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('step1-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // In a real app, you would save the form data here
+            localStorage.setItem('regStep1Complete', 'true');
+            window.location.href = 'register-step2.html';
+        });
+    </script>
+</body>
+
+</html>

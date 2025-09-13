@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="reg-style.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="dashboard-header">
+            <h1>Welcome, Aarav!</h1>
+            <p>Here is a summary of your profile.</p>
+        </div>
+
+        <div class="progress-card">
+            <h2>Your Profile Completion</h2>
+            <div class="progress-circle" id="progress-circle">
+                <span id="progress-value">0%</span>
+            </div>
+            <p>Complete all steps to get full access to college events and resources.</p>
+        </div>
+
+        <div class="info-summary">
+            <div class="info-summary-card">
+                <i class="fas fa-user-circle"></i>
+                <div>
+                    <h3>Personal Information</h3>
+                    <a href="register-step1.html">View or Edit</a>
+                </div>
+            </div>
+            <div class="info-summary-card">
+                <i class="fas fa-university"></i>
+                <div>
+                    <h3>College Details</h3>
+                    <a href="register-step2.html">View or Edit</a>
+                </div>
+            </div>
+            <div class="info-summary-card">
+                <i class="fas fa-book-open"></i>
+                <div>
+                    <h3>Educational Details</h3>
+                    <a href="register-step3.html">View or Edit</a>
+                </div>
+                 <div class="btn-nav">
+                    <pre>             
+                    <a href="/College Event Mangement project/Main homepage code/index.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</a></pre></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const totalSteps = 3;
+            let completedSteps = 0;
+
+            if (localStorage.getItem('regStep1Complete') === 'true') {
+                completedSteps++;
+            }
+            if (localStorage.getItem('regStep2Complete') === 'true') {
+                completedSteps++;
+            }
+            if (localStorage.getItem('regStep3Complete') === 'true') {
+                completedSteps++;
+            }
+
+            const percentage = Math.round((completedSteps / totalSteps) * 100);
+
+            const progressCircle = document.getElementById('progress-circle');
+            const progressValue = document.getElementById('progress-value');
+
+            // This is a small trick to animate the CSS custom property
+            setTimeout(() => {
+                progressCircle.style.setProperty('--p', percentage);
+            }, 100);
+
+            progressValue.textContent = percentage + '%';
+        });
+    </script>
+</body>
+
+</html>

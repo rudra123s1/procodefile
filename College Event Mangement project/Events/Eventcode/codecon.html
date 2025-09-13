@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCon 2025 - College Event Hub</title>
+    <link rel="stylesheet" href="event-style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="/College Event Mangement project/Main homepage code/index.html" class="logo">Event<span
+                    class="logo-highlight">Hub</span></a>
+            <a href="/College Event Mangement project/Main homepage code/index.html" class="btn btn-primary">Back to
+                Events</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="event-banner">
+            <img src="/College Event Mangement project/Events/Image/co.jpeg" alt="Coding Event Banner"
+                class="event-banner-bg">
+            <div class="event-banner-content">
+                <span class="tag">Technical Fest</span>
+                <h1>CodeCon 2025</h1>
+                <p class="date">October 15, 2025 | 24-Hour Hackathon</p>
+            </div>
+        </section>
+
+        <div class="event-main container">
+            <section class="section">
+                <h2 class="section-title">About the Event</h2>
+                <div class="section-content">
+                    <p>CodeCon 2025 is the ultimate 24-hour hackathon where the brightest minds come together to
+                        innovate, build, and create groundbreaking software solutions. Whether you're a seasoned
+                        developer or a coding newbie, this is your platform to shine, learn, and network with industry
+                        professionals. Join us for an adrenaline-fueled day of coding, collaboration, and competition.
+                        Exciting prizes and endless learning opportunities await!</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Register Now</h2>
+                <div class="form-container">
+                    <!-- THIS IS THE ONLY LINE THAT HAS BEEN CHANGED -->
+                    <form action="/College Event Mangement project/Events/otpcode/otp.html" method="GET">
+                        <div class="form-group">
+                            <label for="teamName">Team Name</label>
+                            <input type="text" id="teamName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="leaderName">Team Leader's Full Name</label>
+                            <input type="text" id="leaderName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Leader's Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="teamSize">Team Size (1-4 members)</label>
+                            <input type="number" id="teamSize" class="form-control" min="1" max="4" required>
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-primary">Submit Registration</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Event Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img
+                            src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=1920"
+                            alt="Gallery Image 1"></div>
+                    <div class="gallery-item"><img
+                            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1920"
+                            alt="Gallery Image 2"></div>
+                    <div class="gallery-item"><img
+                            src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1920"
+                            alt="Gallery Image 3"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 College EventHub. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

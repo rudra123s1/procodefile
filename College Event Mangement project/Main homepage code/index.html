@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Event Hub - Your Campus Connection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZmCULaMxtR+ZjEyA9e+4gXhWhKkMHpvLbHG9Sr" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index-style.css">
+    <script src="index-script.js" defer></script>
+
+</head>
+
+<body class="overflow-x-hidden">
+
+    <!-- Header -->
+    <header id="header"
+        class="bg-slate-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-slate-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2"> <svg class="w-8 h-8 text-indigo-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                        </path>
+                    </svg>
+                    <h1 class="text-2xl font-bold text-white">Event<span class="text-indigo-500">Hub</span></h1>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-slate-300 hover:text-indigo-400 transition">Home</a>
+                    <a href="#events" class="text-slate-300 hover:text-indigo-400 transition">Events</a>
+                    <a href="#about" class="text-slate-300 hover:text-indigo-400 transition">About</a>
+                    <a href="#contact" class="text-slate-300 hover:text-indigo-400 transition">Contact</a>
+                    <a href="/College Event Mangement project/studentprofilecode/register-step1.html" class="text-slate-300 hover:text-indigo-400 transition">Registration</a>
+                    <a href="/College Event Mangement project/studentprofilecode/login.html" class="text-slate-300 hover:text-indigo-400 transition">Profile</a>
+                
+                </nav>
+<button class="md:hidden text-white" id="menu-btn">
+    <i class="fas fa-bars text-2xl"></i>
+</button>
+                <button class="md:hidden text-white" id="menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="#home" class="block py-2 text-slate-300 hover:text-indigo-400 transition">Home</a>
+                <a href="#events" class="block py-2 text-slate-300 hover:text-indigo-400 transition">Events</a>
+                <a href="#about" class="block py-2 text-slate-300 hover:text-indigo-400 transition">About</a>
+                <a href="#contact" class="block py-2 text-slate-300 hover:text-indigo-400 transition">Contact</a>
+                 <a href="reg.html" class="block py-2 text-slate-300 hover:text-indigo-400 transition">registration</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home"
+            class="min-h-screen flex items-center justify-center text-center pt-20 relative overflow-hidden hero-gradient">
+            <div class="container mx-auto px-6 z-10">
+                <div class="section-header-bg rounded-lg p-40 mb-10"
+                    style="background-image: url('/College Event Mangement project/Main homepage code/Images/YU.jpg');">
+                    <h4 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">College Event Hub
+                        <div>
+                            
+                            <center>
+                                <img src="/College Event Mangement project/Main homepage code/Images/rt.jpg"
+                                    height="100" width="400" alt="AI Workshop" class="event-banner-bg">
+                            </center>
+                        </div>
+                        <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">Experience Campus
+                            Life
+                        </h2>
+                        <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-8">
+                            The central hub for all college events. From tech fests to cultural nights, never miss out
+                            on what's
+                            happening on campus.
+                        </p>
+                        <a href="#events"
+                            class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-indigo-500 transition-all duration-300 transform hover:scale-105 btn-glow">
+                            Explore Events
+                        </a>
+                </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="py-20 bg-slate-900">
+            <div class="container mx-auto px-6">
+                <div class="section-header-bg rounded-lg py-16 mb-12"
+                    style="background-image: url('https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                    <div class="text-center">
+                        <h2 class="text-4xl font-bold text-white">Upcoming Events</h2>
+                        <p class="text-slate-300 mt-2">Filter through our diverse range of events.</p>
+                    </div>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div id="filter-container" class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button
+                        class="filter-btn active bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-6 rounded-full"
+                        data-filter="all">All</button>
+                    <button
+                        class="filter-btn bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-6 rounded-full"
+                        data-filter="technical">Technical Fests</button>
+                    <button
+                        class="filter-btn bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-6 rounded-full"
+                        data-filter="workshop">Workshops</button>
+                    <button
+                        class="filter-btn bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-6 rounded-full"
+                        data-filter="cultural">Cultural</button>
+                    <button
+                        class="filter-btn bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-6 rounded-full"
+                        data-filter="sports">Sports</button>
+                </div>
+
+                <!-- Event Cards Grid -->
+                <div id="event-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Event Card 1 (Technical) -->
+                    <div class="event-card card-bg rounded-lg overflow-hidden" data-category="technical">
+                        <img src="/College Event Mangement project/Main homepage code/Images/co.jpeg" alt="Coding Event"
+                            class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-indigo-400">Oct 15, 2025</span>
+                            <h3 class="text-2xl font-bold text-white mt-2 mb-3">CodeCon 2025</h3>
+                            <p class="text-slate-400 mb-4">A 24-hour hackathon to build innovative solutions and win
+                                exciting prizes.</p>
+                            <a href="/College Event Mangement project/Events/Eventcode/codecon.html"
+                                class="font-semibold text-indigo-400 hover:text-indigo-300">learn
+                                More
+                                &rarr;</a>
+
+                        </div>
+                    </div>
+                    <!-- Event Card 2 (Workshop) -->
+                    <div class="event-card card-bg rounded-lg overflow-hidden" data-category="workshop">
+                        <img src="/College Event Mangement project/Main homepage code/Images/i_AI-Poster_full.jpg "
+                            alt="AI Workshop" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-pink-400">Oct 22, 2025</span>
+                            <h3 class="text-2xl font-bold text-white mt-2 mb-3">AI & Machine Learning</h3>
+                            <p class="text-slate-400 mb-4">Hands-on workshop on the fundamentals of AI and its
+                                applications.</p>
+                            <a href="/College Event Mangement project/Events/Eventcode/ai-workshop.html"
+                                class="font-semibold text-pink-400 hover:text-pink-300">Learn
+                                More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Event Card 3 (Cultural) -->
+                    <div class="event-card card-bg rounded-lg overflow-hidden" data-category="cultural">
+                        <img src="/College Event Mangement project/Main homepage code/Images/cu.jpeg " height="100
+                        " alt="Cultural Fest" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-orange-400">Nov 5, 2025</span>
+                            <h3 class="text-2xl font-bold text-white mt-2 mb-3">Aura Cultural Fest</h3>
+                            <p class="text-slate-400 mb-4">A vibrant celebration of music, dance, and art from across
+                                the nation.</p>
+                            <a href="/College Event Mangement project/Events/Eventcode/cultural-fest.html "
+                                class="font-semibold text-orange-400 hover:text-orange-300">Learn More
+                                &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Event Card 4 (Sports) -->
+                    <div class="event-card card-bg rounded-lg overflow-hidden" data-category="sports">
+                        <img src="/College Event Mangement project/Main homepage code/Images/ko.jpg" alt="Sports Event"
+                            class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-emerald-400">Nov 18, 2025</span>
+                            <h3 class="text-2xl font-bold text-white mt-2 mb-3">Inter-Dept Sports Gala</h3>
+                            <p class="text-slate-400 mb-4">Compete in cricket, football, and more to bring glory to your
+                                department.</p>
+                            <a href="/College Event Mangement project/Events/Eventcode/sports-gala.html"
+                                class="font-semibold text-emerald-400 hover:text-emerald-300">Learn
+                                More
+                                &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Event Card 5 (Technical) -->
+                    <div class="event-card card-bg rounded-lg overflow-hidden" data-category="technical">
+                        <img src="/College Event Mangement project/Main homepage code/Images/RoboWar.jpg "
+                            alt="Robotics Competition" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-blue-400">Nov 25, 2025</span>
+                            <h3 class="text-2xl font-bold text-white mt-2 mb-3">RoboWars Championship</h3>
+                            <p class="text-slate-400 mb-4">Design, build, and battle your robots in the ultimate
+                                showdown.</p>
+                            <a href="/College Event Mangement project/Events/Eventcode/robowars.html"
+                                class="font-semibold text-blue-400 hover:text-blue-300">Learn
+                                More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Event Card 6 (Workshop) -->
+                    <div class="event-card card-bg rounded-lg overflow-hidden" data-category="workshop">
+                        <img src="/College Event Mangement project/Main homepage code/Images/op.jpg "
+                            alt="Design Workshop" class="w-full h-56 object-cover" width="100" height="100">
+                        <div class="p-6">
+                            <span class="text-sm font-semibold text-yellow-400">Dec 2, 2025</span>
+                            <h3 class="text-2xl font-bold text-white mt-2 mb-3">Design Thinking Workshop</h3>
+                            <p class="text-slate-400 mb-4">Learn innovative problem-solving techniques with industry
+                                experts.</p>
+                            <a href="/College Event Mangement project/Events/Eventcode/design-workshop.html"
+                                class="font-semibold text-yellow-400 hover:text-yellow-300">Learn
+                                More
+                                &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="/College Event Mangement project/Main homepage code/Images/yardbarkercampus1.jpg "
+                            alt="College campus" class="rounded-lg shadow-2xl w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="section-header-bg rounded-lg p-8 mb-6"
+                            style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                            <h2 class="text-4xl font-bold text-white">Fostering Creativity & Collaboration</h2>
+                        </div>
+                        <p class="text-slate-400 mb-4 leading-relaxed">
+                            At our college, we believe that learning extends beyond the classroom. Our diverse range of
+                            events are designed to provide students with opportunities to showcase their talents,
+                            develop new skills, and collaborate with peers.
+                        </p>
+                        <p class="text-slate-400 leading-relaxed">
+                            From groundbreaking technical symposiums to soul-stirring cultural festivals, we are
+                            committed to creating a vibrant and dynamic campus life that enriches the student
+                            experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 border-t border-slate-800">
+        <div class="container mx-auto px-6 py-12">
+            <div class="text-center">
+                <div class="section-header-bg rounded-lg py-16 mb-8"
+                    style="background-image: url('/College Event Mangement project/Main homepage code/Images/GIM-Goa-Inception-2025.jpg');">
+                    <h2 class="text-3xl font-bold text-white">Get In Touch</h2>
+                    <p class="text-slate-300 mt-2 mb-6">Have questions or want to collaborate? Reach out to us!</p>
+                    <a href="mailto:events@college.edu"
+                        class="text-lg text-indigo-400 hover:underline">events@college.edu</a>
+                </div>
+                <div class="section-header-bg rounded-lg py-20 mb-12"
+                    style="background-image: url('/College Event Mangement project/Main homepage code/Images/op.jpg') ;">
+                </div>
+
+            </div>
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="section-header-bg rounded-lg py-16 mb-12"
+                        style="background-image: url('/College Event Mangement project/Main homepage code/Images/istockphoto-2172494039-612x612.jpg');">
+                        <h1>Contact us </h1>
+                        <p>We're here to help and answer any question you might have. We look forward to hearing from
+                            you.</p>
+                    </div>
+            </section>
+
+            <div class="container">
+                <!-- CONTACT DETAILS GRID -->
+                <section class="contact-grid">
+                    <div class="contact-card">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i>
+                            <img src="/College Event Mangement project/Main homepage code/Images/ll.png" alt=""
+                                style="max-width: 120px; height: auto;">
+                        </div>
+                        <h3>Main Campus Address</h3>
+                        <p>
+                            Stellar University<br>
+                            NH-58, Delhi-Roorkee Bypass Road<br>
+                            Meerut, Uttar Pradesh 250110, India
+                        </p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                        <img src="/College Event Mangement project/Main homepage code/Images/call.png" alt="">
+                        <h3>General Inquiries</h3>
+                        <p>
+                            Our team is available from 9 AM to 5 PM, Monday to Friday.<br>
+                            <a href="tel:+911212439043">+91-121-243-9043</a>
+                        </p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <img src="/College Event Mangement project/Main homepage code/Images/ms.png" alt="">
+                        <h3>Email Us</h3>
+                        <p>
+                            For admissions: <a
+                                href="mailto:admissions@stellaruni.ac.in">admissions@stellaruni.ac.in</a><br>
+                            For general info: <a href="mailto:info@stellaruni.ac.in">info@stellaruni.ac.in</a>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- FORM AND MAP SECTION -->
+                <section class="form-map-section">
+                    <div class="contact-form-wrapper">
+                        <h2>Send Us a Message</h2>
+                        <form action="#" method="POST" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-input"
+                                    placeholder="e.g., Anjali Sharma" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-input"
+                                    placeholder="you@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number (Optional)</label>
+                                <input type="tel" id="phone" name="phone" class="form-input"
+                                    placeholder="+91 XXXXX XXXXX">
+                            </div>
+                            <div class="form-group">
+                                <label for="inquiry-type">Reason for Inquiry</label>
+                                <select id="inquiry-type" name="inquiry_type" class="form-select">
+                                    <option value="admissions">Admissions</option>
+                                    <option value="academics">Academics</option>
+                                    <option value="events">Campus Events</option>
+                                    <option value="support">Student Support</option>
+                                    <option value="general">General Question</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" class="form-textarea"
+                                    placeholder="Type your message here..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                Send Message <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="map-wrapper">
+                        <h2>Find Us Here</h2>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111551.9269458055!2d77.63212724335937!3d28.9868772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c64846430191d%3A0x136d435234988e0!2sMeerut%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1726076774136!5m2!1sen!2sin"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </section>
+            </div>
+
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="container">
+                    <div class="footer-grid">
+                        <div class="footer-column footer-logo-column">
+                            <a href="index.html" class="logo">
+                                <i class="fas fa-star"></i> Stellar University
+                            </a>
+                            <p>Fostering intellect, creativity, and character for a better tomorrow.</p>
+                            <br>
+                            <div class="container mx-auto px-6">
+                                <div class="flex justify-center space-x-6">
+                                    <a href="#" class="text-slate-500 hover:text-indigo-400 transition">
+                                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="text-slate-500 hover:text-indigo-400 transition">
+                                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path
+                                                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="text-slate-500 hover:text-indigo-400 transition">
+                                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.795 2.013 10.148 2 12.315 2zm-1.161 1.043c-1.049.046-1.64.208-2.126.395a3.896 3.896 0 00-1.406.915 3.896 3.896 0 00-.915 1.406c-.187.486-.349 1.077-.395 2.126-.046 1.024-.058 1.35-.058 3.816s.012 2.792.058 3.816c.046 1.049.208 1.64.395 2.126a3.896 3.896 0 00.915 1.406 3.896 3.896 0 001.406.915c.486.187 1.077.349 2.126.395 1.024.046 1.35.058 3.816.058s2.792-.012 3.816-.058c1.049-.046 1.64-.208 2.126-.395a3.896 3.896 0 001.406-.915 3.896 3.896 0 00.915-1.406c.187-.486.349-1.077.395-2.126.046-1.024.058-1.35.058-3.816s-.012-2.792-.058-3.816c-.046-1.049-.208-1.64-.395-2.126a3.896 3.896 0 00-.915-1.406 3.896 3.896 0 00-1.406-.915c-.486-.187-1.077-.349-2.126-.395-1.024-.046-1.35-.058-3.816-.058zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 1.827a3.308 3.308 0 110 6.616 3.308 3.308 0 010-6.616zm6.406-1.182a1.227 1.227 0 100 2.454 1.227 1.227 0 000-2.454z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="social-icons">
+                                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Academics</a></li>
+                                <li><a href="#">Admissions</a></li>
+                                <li><a href="#">Research</a></li>
+                                <li><a href="#">Campus Life</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>Resources</h4>
+                            <ul>
+                                <li><a href="#">Current Students</a></li>
+                                <li><a href="#">Faculty & Staff</a></li>
+                                <li><a href="#">Alumni</a></li>
+                                <li><a href="#">Parents & Families</a></li>
+                                <li><a href="#">Library</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>Contact</h4>
+                            <p>
+                                NH-58, Bypass Road<br>
+                                Meerut, UP, India<br><br>
+                                <strong>Phone:</strong> <a href="tel:+911212439043">+91-121-243-9043</a><br>
+                                <strong>Email:</strong> <a href="mailto:info@stellaruni.ac.in">info@stellaruni.ac.in</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        &copy; 2025 Stellar University. All Rights Reserved | <a href="#"
+                            style="color: var(--color-text-medium);">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Mobile Menu Toggle
+                    const menuBtn = document.getElementById('menu-btn');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    menuBtn.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
+                    });
+
+                    // Event Filtering Logic
+                    const filterContainer = document.getElementById('filter-container');
+                    const eventCards = document.querySelectorAll('.event-card');
+
+                    filterContainer.addEventListener('click', (e) => {
+                        if (e.target.tagName !== 'BUTTON') return;
+
+                        const filter = e.target.dataset.filter;
+
+                        // Update active button state
+                        filterContainer.querySelector('.active').classList.remove('active');
+                        e.target.classList.add('active');
+
+                        // Filter cards
+                        eventCards.forEach(card => {
+                            const category = card.dataset.category;
+                            if (filter === 'all' || filter === category) {
+                                card.classList.remove('hidden-event');
+                                // Re-trigger animation
+                                card.style.animation = 'none';
+                                card.offsetHeight; /* trigger reflow */
+                                card.style.animation = null;
+                            } else {
+                                card.classList.add('hidden-event');
+                            }
+                        });
+                    });
+
+                    // Smooth scroll for anchor links
+                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                        anchor.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                            // Close mobile menu on click
+                            if (!mobileMenu.classList.contains('hidden')) {
+                                mobileMenu.classList.add('hidden');
+                            }
+                        });
+                    });
+
+                    // Fade in sections on scroll
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.style.opacity = 1;
+                                entry.target.style.transform = 'translateY(0)';
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.1 });
+
+                    document.querySelectorAll('section').forEach(section => {
+                        section.style.opacity = 0;
+                        section.style.transform = 'translateY(30px)';
+                        section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                        observer.observe(section);
+                    });
+                    // Initial load for hero should be visible
+                    const homeSection = document.getElementById('home');
+                    homeSection.style.opacity = 1;
+                    homeSection.style.transform = 'translateY(0)';
+               
+                });
+                
+            </script>
+</body>
+
+</html>

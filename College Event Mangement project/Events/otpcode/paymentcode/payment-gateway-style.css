@@ -1,0 +1,78 @@
+ body {
+     font-family: 'Inter', sans-serif;
+     
+     background: linear-gradient(to right top, #000000, #e0e7ff);
+ }
+
+ .payment-container {
+     transition: all 0.4s ease;
+     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+ }
+
+ .details-panel {
+     background: linear-gradient(135deg, #ffef09, #ff0000);
+ }
+
+ .tab-button {
+     transition: all 0.3s ease;
+     border-bottom: 3px solid transparent;
+ }
+
+ .tab-active {
+     border-color: #6d28d9;
+     color: #6d28d9;
+     background-color: white;
+ }
+
+ .tab-content {
+     display: none;
+     animation: fadeIn 0.5s ease;
+ }
+
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(10px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ .tab-content-active {
+     display: block;
+ }
+
+ .form-input:focus {
+     border-color: #6d28d9;
+     box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.2);
+     outline: none;
+ }
+
+ .pay-button {
+     background: linear-gradient(to right, #10091f, #dd0202);
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+     transition: all 0.3s ease;
+ }
+
+ .pay-button:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+ }
+
+ .loader {
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     border: 5px solid #e5e7eb;
+     border-top-color: #6d28d9;
+     animation: spin 1s linear infinite;
+ }
+
+ @keyframes spin {
+     to {
+         transform: rotate(360deg);
+     }
+ }
