@@ -37,13 +37,15 @@
                     <a href="#events" class="text-slate-300 hover:text-indigo-400 transition">Events</a>
                     <a href="#about" class="text-slate-300 hover:text-indigo-400 transition">About</a>
                     <a href="#contact" class="text-slate-300 hover:text-indigo-400 transition">Contact</a>
-                    <a href="/College Event Mangement project/studentprofilecode/register-step1.html" class="text-slate-300 hover:text-indigo-400 transition">Registration</a>
-                    <a href="/College Event Mangement project/studentprofilecode/login.html" class="text-slate-300 hover:text-indigo-400 transition">Profile</a>
-                
+                    <a href="/College Event Mangement project/studentprofilecode/register-step1.html"
+                        class="text-slate-300 hover:text-indigo-400 transition">Registration</a>
+                    <a href="/College Event Mangement project/studentprofilecode/login.html"
+                        class="text-slate-300 hover:text-indigo-400 transition">Profile</a>
+
                 </nav>
-<button class="md:hidden text-white" id="menu-btn">
-    <i class="fas fa-bars text-2xl"></i>
-</button>
+                <button class="md:hidden text-white" id="menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
                 <button class="md:hidden text-white" id="menu-btn">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +60,7 @@
                 <a href="#events" class="block py-2 text-slate-300 hover:text-indigo-400 transition">Events</a>
                 <a href="#about" class="block py-2 text-slate-300 hover:text-indigo-400 transition">About</a>
                 <a href="#contact" class="block py-2 text-slate-300 hover:text-indigo-400 transition">Contact</a>
-                 <a href="reg.html" class="block py-2 text-slate-300 hover:text-indigo-400 transition">registration</a>
+                <a href="reg.html" class="block py-2 text-slate-300 hover:text-indigo-400 transition">registration</a>
             </div>
         </div>
     </header>
@@ -72,7 +74,7 @@
                     style="background-image: url('/College Event Mangement project/Main homepage code/Images/YU.jpg');">
                     <h4 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight">College Event Hub
                         <div>
-                            
+
                             <center>
                                 <img src="/College Event Mangement project/Main homepage code/Images/rt.jpg"
                                     height="100" width="400" alt="AI Workshop" class="event-banner-bg">
@@ -216,7 +218,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- About Section -->
         <section id="about" class="py-20">
             <div class="container mx-auto px-6">
@@ -513,9 +515,60 @@
                     const homeSection = document.getElementById('home');
                     homeSection.style.opacity = 1;
                     homeSection.style.transform = 'translateY(0)';
-               
+                    // Add this inside your index-script.js or an existing script tag
+
+                    document.addEventListener('DOMContentLoaded', function () {
+                        // ... (keep all your other code like menu toggle, filtering, etc.)
+
+                        // --- Add this new part for the contact form ---
+                        const contactForm = document.querySelector('.contact-form');
+
+                        contactForm.addEventListener('submit', async function (e) {
+                            e.preventDefault(); // Stop the form from reloading the page
+
+                            const formData = {
+                                name: document.getElementById('name').value,
+                                email: document.getElementById('email').value,
+                                phone: document.getElementById('phone').value,
+                                inquiry_type: document.getElementById('inquiry-type').value,
+                                message: document.getElementById('message').value
+                            };
+
+                            const submitButton = contactForm.querySelector('.submit-btn');
+                            submitButton.innerHTML = 'Sending...';
+                            submitButton.disabled = true;
+
+                            try {
+                                // Send the data to your backend server
+                                const response = await fetch('http://localhost:3001/api/contact', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify(formData),
+                                });
+
+                                const result = await response.json();
+
+                                if (response.ok) {
+                                    alert(result.message);
+                                    contactForm.reset(); // Clear the form
+                                } else {
+                                    throw new Error(result.message);
+                                }
+                            } catch (error) {
+                                console.error('Form submission error:', error);
+                                alert('Error: ' + error.message);
+                            } finally {
+                                // Restore the button
+                                submitButton.innerHTML = 'Send Message <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>';
+                                submitButton.disabled = false;
+                            }
+                        });
+                    });
+
                 });
-                
+
             </script>
 </body>
 
