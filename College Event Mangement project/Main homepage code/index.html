@@ -522,54 +522,6 @@
                     // Add this inside your index-script.js or an existing script tag
 
                     document.addEventListener('DOMContentLoaded', function () {
-                        // ... (keep all your other code like menu toggle, filtering, etc.)
-
-                        // --- Add this new part for the contact form ---
-                        const contactForm = document.querySelector('.contact-form');
-
-                        contactForm.addEventListener('submit', async function (e) {
-                            e.preventDefault(); // Stop the form from reloading the page
-
-                            const formData = {
-                                name: document.getElementById('name').value,
-                                email: document.getElementById('email').value,
-                                phone: document.getElementById('phone').value,
-                                inquiry_type: document.getElementById('inquiry-type').value,
-                                message: document.getElementById('message').value
-                            };
-
-                            const submitButton = contactForm.querySelector('.submit-btn');
-                            submitButton.innerHTML = 'Sending...';
-                            submitButton.disabled = true;
-
-                            try {
-                                // Send the data to your backend server
-                                const response = await fetch('http://localhost:3001/api/contact', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                    },
-                                    body: JSON.stringify(formData),
-                                });
-
-                                const result = await response.json();
-
-                                if (response.ok) {
-                                    alert(result.message);
-                                    contactForm.reset(); // Clear the form
-                                } else {
-                                    throw new Error(result.message);
-                                }
-                            } catch (error) {
-                                console.error('Form submission error:', error);
-                                alert('Error: ' + error.message);
-                            } finally {
-                                // Restore the button
-                                submitButton.innerHTML = 'Send Message <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>';
-                                submitButton.disabled = false;
-                            }
-
-                        });
                     });
 
                 });
