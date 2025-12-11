@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p id="popup-message">Error....</p>
+            <button id="close-popup">OK</button>
+        </div>
+    </div>
+    <div class="container">
+        <div id="calculator" class="calculator light">
+            <div class="heading">
+                <button id="history-toggle" class="history-toggle">
+                    <span>📜</span>
+                </button>
+                <h1>Calculator</h1>
+                <button id="theme-toggle" class="theme-toggle">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+            <div id="display" class="display"></div>
+            <div class="buttons">
+                <button onclick="clearInput()">AC</button>
+                <button onclick="backspace()"><img width="32" height="32"
+                        src="https://img.icons8.com/windows/32/clear-symbol.png" alt="clear-symbol" /></button>
+                <button onclick="appendValue('%')">%</button>
+                <button onclick="appendValue('+')" class="operator-btn">+</button>
+                <button onclick="appendValue('1')">1</button>
+                <button onclick="appendValue('2')">2</button>
+                <button onclick="appendValue('3')">3</button>
+                <button onclick="appendValue('-')" class="operator-btn">-</button>
+                <button onclick="appendValue('4')">4</button>
+                <button onclick="appendValue('5')">5</button>
+                <button onclick="appendValue('6')">6</button>
+                <button onclick="appendValue('*')" class="operator-btn">x</button>
+                <button onclick="appendValue('7')">7</button>
+                <button onclick="appendValue('8')">8</button>
+                <button onclick="appendValue('9')">9</button>
+                <button onclick="appendValue('/')" class="operator-btn">/</button>
+                <button onclick="appendValue('00')">00</button>
+                <button onclick="appendValue('0')">0</button>
+                <button onclick="appendValue('.')">.</button>
+                <button onclick="calculate()" class="operator-btn equal">=</button>
+            </div>
+        </div>
+        <div id="history" class="history hide">
+            <h2>History</h2>
+            <div id="history-list"></div>
+            <button onclick="clearHistory()" class="clear-history">Clear History</button>
+        </div>
+    </div>
+    <div id="history" class="history">
+        <div class="history-header">
+            <button id="close-history-btn" class="back-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back
+            </button>
+            <h2>History</h2>
+        </div>
+
+        <div id="history-list"></div>
+
+        <button onclick="clearHistory()" class="clear-history">Clear History</button>
+    </div>
+    <script src="javascript.js"></script>
+</body>
+
+</html>

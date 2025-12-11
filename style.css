@@ -1,0 +1,368 @@
+/* 1. Import a professional font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* 2. CSS Variables for Theming */
+:root {
+    /* Light Theme Colors */
+    --bg-color: #e0e5ec;
+    --calc-bg: #ffffff;
+    --display-color: #2d3436;
+    --btn-bg: #f0f0f0;
+    --btn-text: #333;
+    --btn-shadow: 6px 6px 10px #babecc, -6px -6px 10px #ffffff;
+    --btn-shadow-inset: inset 4px 4px 8px #babecc, inset -4px -4px 8px #ffffff;
+    --operator-color: #0984e3;
+    --equal-bg: linear-gradient(135deg, #6c5ce7, #0984e3);
+    --equal-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+
+    /* Dimensions */
+    --calc-width: 360px;
+    --calc-padding: 25px;
+}
+
+/* Dark Theme Overrides */
+body.dark-mode {
+    --bg-color: #1e1e2e;
+    --calc-bg: #2b2b40;
+    --display-color: #ffffff;
+    --btn-bg: #34344a;
+    --btn-text: #f0f0f0;
+    --btn-shadow: 5px 5px 10px #1a1a25, -5px -5px 10px #3e3e58;
+    --btn-shadow-inset: inset 4px 4px 8px #1a1a25, inset -4px -4px 8px #3e3e58;
+    --operator-color: #74b9ff;
+}
+
+/* 3. Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+    /* Prevents text selection on rapid clicks */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    transition: background-color 0.4s ease;
+}
+
+/* 4. Main Layout Container */
+.container {
+    position: relative;
+    display: flex;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    /* Important for sliding history */
+}
+
+/* 5. Calculator Body */
+.calculator {
+    width: var(--calc-width);
+    background: var(--calc-bg);
+    padding: var(--calc-padding);
+    border-radius: 30px;
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+}
+
+/* 6. Header Section (Toggle Buttons) */
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.heading h1 {
+    font-size: 1.2rem;
+    color: var(--display-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.history-toggle,
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--display-color);
+    transition: transform 0.2s ease;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.history-toggle:hover,
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 7. Display Screen */
+.display {
+    width: 100%;
+    height: 90px;
+    margin-bottom: 25px;
+    padding: 10px;
+    font-size: 2.8rem;
+    font-weight: 600;
+    text-align: right;
+    color: var(--display-color);
+    overflow-x: auto;
+    /* Handles long numbers */
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+    /* Custom Scrollbar for display */
+    scrollbar-width: thin;
+}
+
+.display::-webkit-scrollbar {
+    height: 4px;
+}
+
+.display::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 2px;
+}
+
+/* 8. Button Grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+/* 9. Button Styling (Neumorphism / Soft UI) */
+.buttons button {
+    height: 60px;
+    width: 60px;
+    border-radius: 18px;
+    border: none;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: var(--btn-shadow);
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover State */
+.buttons button:hover {
+    transform: translateY(-2px);
+}
+
+/* Active/Click State */
+.buttons button:active {
+    box-shadow: var(--btn-shadow-inset);
+    transform: translateY(2px);
+    font-size: 1.1rem;
+}
+
+/* Operator Buttons specific styling */
+.operator-btn {
+    color: var(--operator-color) !important;
+    font-weight: 700 !important;
+    font-size: 1.4rem !important;
+}
+
+/* Clear and Backspace styling */
+.buttons button:nth-child(1),
+.buttons button:nth-child(2) {
+    color: #ff7675;
+}
+
+/* Equal Button Special Styling */
+.equal {
+    background: var(--equal-bg) !important;
+    color: #fff !important;
+    box-shadow: var(--equal-shadow) !important;
+}
+
+.equal:active {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 10. History Sidebar (Sliding Panel) */
+.history {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    /* Glass effect */
+    -webkit-backdrop-filter: blur(15px);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    /* Changed to left for a drawer effect, or use right */
+    z-index: 5;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    /* Hidden by default */
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    /* Bouncy animation */
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Logic to show history (toggle this class via JS) */
+.history.show {
+    transform: translateX(0);
+}
+
+/* Handle Dark mode history specifically */
+body.dark-mode .history {
+    background: rgba(30, 30, 46, 0.85);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.history h2 {
+    color: var(--display-color);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+#history-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    color: var(--btn-text);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.clear-history {
+    padding: 10px;
+    background: #ff7675;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* 11. Popup Modal Styling */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    /* JS will toggle to flex */
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.popup.active {
+    display: flex;
+    opacity: 1;
+}
+
+.popup-content {
+    background: var(--calc-bg);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: var(--display-color);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.popup.active .popup-content {
+    transform: scale(1);
+}
+
+#close-popup {
+    margin-top: 20px;
+    padding: 8px 25px;
+    background: var(--operator-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive Mobile Tweak */
+@media (max-width: 400px) {
+    .calculator {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .container {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .buttons button {
+        height: 55px;
+        width: 55px;
+    }
+}
+
+/* Update the existing History Styles to allow Flex column layout */
+.history {
+    /* ... existing styles ... */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. New Header Container */
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Pushes title to the right, button to left */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* Subtle divider */
+}
+
+/* 2. Styling the Back Button */
+.back-btn {
+    background: transparent;
+    border: none;
+    color: var(--operator-color);
+    /* Uses your theme blue color */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Space between arrow and text */
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.back-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    /* Light grey hover effect */
+}
+
+/* Dark mode adjustment for the divider */
+body.dark-mode .history-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
